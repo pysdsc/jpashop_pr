@@ -1,5 +1,7 @@
 package jpabook.jpapr;
 
+import jpabook.jpapr.domain.Member;
+import jpabook.jpapr.domain.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 public class MemberRepositoryTest {
 
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepository memberRepository;
 
     @Test @Transactional
     public void testMember() throws Exception {

@@ -1,5 +1,6 @@
-package jpabook.jpapr;
+package jpabook.jpapr.domain;
 
+import jpabook.jpapr.domain.Member;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
