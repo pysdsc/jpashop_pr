@@ -2,7 +2,7 @@ package jpabook.jpapr.Service;
 
 import jpabook.jpapr.Repository.MemberRepository;
 import jpabook.jpapr.domain.Member;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.internal.exceptions.ExceptionIncludingMockitoWarnings;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-class MemberServiceTest {
+public class MemberServiceTest {
 
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
@@ -35,7 +35,7 @@ class MemberServiceTest {
     }
 
 
-    @Test
+    @Test(expected = IllegalStateException.class)
     public void 중복_회원_예외() throws Exception {
         //given
         Member member1 = new Member();
@@ -45,6 +45,7 @@ class MemberServiceTest {
         //when
         memberService.join(member1);
         memberService.join(member2); // 예외 발생
+
         //then
         fail("예외가 발생해야 한다.");
     }
